@@ -15,10 +15,11 @@ RUN pacman -Syu --noconfirm \
 
 WORKDIR /telegram-bot-api
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+# COPY . .
+COPY start.sh ./start.sh
+RUN chmod +x ./start.sh
 
 # Expose the port (change if needed)
 EXPOSE 8667
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["./start.sh"]
