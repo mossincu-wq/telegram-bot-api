@@ -6,7 +6,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 ENV TZ=UTC
 
-RUN cat /etc/secrets/secret
+# RUN cat /etc/secrets/secret
 
 
 # Update the package database and install dependencies
