@@ -6,6 +6,9 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 ENV TZ=UTC
 
+RUN env
+
+
 # Update the package database and install dependencies
 RUN pacman -Syu --noconfirm \
     base-devel \
@@ -34,7 +37,6 @@ EXPOSE 8080
 
 RUN curl https://api.ipify.org/
 
-RUN env
 
 
 # Command to run the Telegram Bot API server
