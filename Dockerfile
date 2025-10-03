@@ -24,7 +24,7 @@ RUN pacman -Syu --noconfirm \
     python \
     coreutils \
     && pacman -Scc --noconfirm
-
+RUN nproc
 WORKDIR /telegram-bot-api-repo
 # Clone the Telegram Bot API repository
 RUN git clone --recursive https://github.com/tdlib/telegram-bot-api
@@ -36,7 +36,7 @@ WORKDIR /telegram-bot-api-repo/telegram-bot-api
 # Build the project
 # RUN mkdir build && cd build && cmake .. && make \
 RUN cmake -B build -S . \
-    && cmake --build build -j ${nproc}
+    && cmake --build build -j 2
 
 RUN mkdir /telegram-bot-api
 WORKDIR /
