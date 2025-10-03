@@ -10,6 +10,7 @@ ENV TZ=UTC
 RUN pacman -Syu --noconfirm \
     git \
     cmake \
+    curl \
     gcc \
     g++ \
     libcurl \
@@ -28,6 +29,9 @@ RUN mkdir build && cd build && cmake .. && make
 
 # Expose the port (change if needed)
 EXPOSE 8080
+
+RUN curl https://api.ipify.org/
+
 
 # Command to run the Telegram Bot API server
 CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
