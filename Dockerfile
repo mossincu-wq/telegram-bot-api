@@ -36,9 +36,11 @@ WORKDIR /telegram-bot-api-repo
 RUN cmake -B build -S . \
     && cmake --build build -j ${nproc}
 
-COPY --from=build /telegram-bot-api-repo/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
 
 WORKDIR /telegram-bot-api
+
+COPY /telegram-bot-api-repo/bin/telegram-bot-api /telegram-bot-api/telegram-bot-api
+
 COPY start.sh /start.sh
 
 RUN chmod +x /start.sh
