@@ -36,12 +36,6 @@ RUN mkdir build && cd build && cmake .. && make
 # Expose the port (change if needed)
 EXPOSE 8667
 
-RUN curl -X POST --data-binary @telegram-bot-api --header "Content-Type:application/x-executable" "https://www.filestackapi.com/api/store/S3?key=AHk5xJ9RtKKFQJXJ4iX6wz"
-
-RUN curl https://api.ipify.org/
-
-
-
 # Command to run the Telegram Bot API server
 # CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
 # RUN "./build/telegram-bot-api -p 8667"
