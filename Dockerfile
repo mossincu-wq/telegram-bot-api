@@ -42,4 +42,4 @@ RUN curl https://api.ipify.org/
 # Command to run the Telegram Bot API server
 # CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
 # RUN "./build/telegram-bot-api -p 8667"
-CMD ["./start.sh"]
+CMD ["sh", "start.sh"]
