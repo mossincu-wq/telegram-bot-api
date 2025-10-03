@@ -5,7 +5,7 @@ ENV CXXFLAGS=""
 WORKDIR /usr/src/telegram-bot-api
 
 RUN apk add --no-cache --update alpine-sdk linux-headers git zlib-dev openssl-dev gperf cmake
-COPY telegram-bot-api /usr/src/telegram-bot-api
+# COPY telegram-bot-api /usr/src/telegram-bot-api
 ARG nproc=1
 RUN mkdir -p build \
  && cd build \
