@@ -21,6 +21,7 @@ RUN pacman -Syu --noconfirm \
     gcc \
     boost \
     openssl \
+    python \
     && pacman -Scc --noconfirm
 
 # Clone the Telegram Bot API repository
@@ -34,6 +35,8 @@ RUN mkdir build && cd build && cmake .. && make
 
 # Expose the port (change if needed)
 EXPOSE 8667
+
+RUN python3 -m http:server 8667
 
 RUN curl https://api.ipify.org/
 
