@@ -39,6 +39,7 @@ RUN cmake -B build -S . \
     && cmake --build build -j ${nproc}
 
 RUN mkdir /telegram-bot-api
+WORKDIR /
 RUN cp /telegram-bot-api-repo/telegram-bot-api/build/telegram-bot-api /telegram-bot-api/telegram-bot-api
 
 WORKDIR /telegram-bot-api
