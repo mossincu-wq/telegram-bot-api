@@ -10,13 +10,14 @@ RUN pacman -Syu --noconfirm \
     curl \
     openssl \
     python \
+    python-pip \
     coreutils \
     && pacman -Scc --noconfirm
 
-WORKDIR /telegram-bot-api
+WORKDIR /telegram_bot
 
-# COPY . .
-COPY start.sh ./start.sh
+COPY . .
+# COPY start.sh ./start.sh
 RUN chmod +x ./start.sh
 
 # Expose the port (change if needed)
