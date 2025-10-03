@@ -26,7 +26,7 @@ def download_file(update: Update, context: CallbackContext) -> None:
 
     # Download each file
     for file in files:
-        file_path = os.path.join(os.path.expanduser('~'), 'tests', 'http_server', file.file_name)
+        file_path = os.path.join(os.path.realpath('.'), 'files', file.file_name)
         # file_path = os.path.join(os.getcwd(), file.file_name)
         new_file = context.bot.getFile(file.file_id)
         new_file.download(file_path)
