@@ -39,7 +39,7 @@ RUN cmake -B build -S . \
 
 WORKDIR /telegram-bot-api
 
-COPY /telegram-bot-api-repo/bin/telegram-bot-api /telegram-bot-api/telegram-bot-api
+COPY /telegram-bot-api-repo/build/telegram-bot-api /telegram-bot-api/telegram-bot-api
 
 COPY start.sh /start.sh
 
