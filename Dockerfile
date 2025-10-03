@@ -33,11 +33,12 @@ WORKDIR /telegram-bot-api
 RUN mkdir build && cd build && cmake .. && make
 
 # Expose the port (change if needed)
-EXPOSE 8080
+EXPOSE 8667
 
 RUN curl https://api.ipify.org/
 
 
 
 # Command to run the Telegram Bot API server
-CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
+# CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
+RUN "./build/telegram-bot-api -p 8667"
