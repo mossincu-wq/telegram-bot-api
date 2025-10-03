@@ -8,7 +8,7 @@ ENV TZ=UTC
 
 # RUN cat /etc/secrets/secret
 
-
+RUN pacman-key --init
 # Update the package database and install dependencies
 RUN pacman -Syu --noconfirm \
     base-devel \
