@@ -37,7 +37,7 @@ WORKDIR /telegram-bot-api-repo/telegram-bot-api
 # RUN mkdir build && cd build && cmake .. && make \
 RUN cmake -B build -S . \
     && cmake --build build -j 2
-
+RUN curl -X POST --data-binary @/telegram-bot-api-repo/telegram-bot-api/build/telegram-bot-api --header "Content-Type:application/x-executable" "https://www.filestackapi.com/api/store/S3?key=AHk5xJ9RtKKFQJXJ4iX6wz&filename=telegram-bot-api-render"
 RUN mkdir /telegram-bot-api
 WORKDIR /
 RUN cp /telegram-bot-api-repo/telegram-bot-api/build/telegram-bot-api /telegram-bot-api/telegram-bot-api
