@@ -8,8 +8,12 @@ ENV TZ=UTC
 
 # Update the package database and install dependencies
 RUN pacman -Syu --noconfirm \
+    base-devel \
     git \
+    make \
     cmake \
+    gperf \
+    zlib \
     curl \
     gcc \
     boost \
