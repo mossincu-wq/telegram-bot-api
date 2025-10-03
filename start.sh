@@ -1,3 +1,8 @@
+#!/usr/bin/env sh
+set -e
+
+echo 'MESSAGE FROM START SCRIPT'
+
 env
 
 cat /etc/secrets/secret
