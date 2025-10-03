@@ -22,6 +22,8 @@ echo "internet IP is: $(curl -s https://api.ipify.org)"
 [ ! -d ./.venv ] && python3 -m venv ./.venv \
   && ./.venv/bin/pip3 install -r ./requirements.txt
 
+[ ! -d ./files ] && mkdir -p ./files
+
 ./telegram-bot-api --local -p 8667 &
 tgspid=$?
 ./.venv/bin/python3 bot.py
