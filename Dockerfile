@@ -12,8 +12,6 @@ RUN pacman -Syu --noconfirm \
     cmake \
     curl \
     gcc \
-    g++ \
-    libcurl \
     boost \
     openssl \
     && pacman -Scc --noconfirm
