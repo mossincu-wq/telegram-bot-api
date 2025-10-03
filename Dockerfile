@@ -22,16 +22,27 @@ RUN pacman -Syu --noconfirm \
     boost \
     openssl \
     python \
+    coreutils \
     && pacman -Scc --noconfirm
 
 # Clone the Telegram Bot API repository
-RUN git clone --recursive https://github.com/tdlib/telegram-bot-api /telegram-bot-api
+RUN git clone --recursive https://github.com/tdlib/telegram-bot-api /telegram-bot-api/repo
 
 # Change directory to the cloned repository
-WORKDIR /telegram-bot-api
+WORKDIR /telegram-bot-api/repo
 
 # Build the project
-RUN mkdir build && cd build && cmake .. && make
+# RUN mkdir build && cd build && cmake .. && make \
+RUN cmake -B build -S . \
+    && cmake --build build -j ${nproc}
+
+
+WORKDIR /telegram-bot-api
+COPY --from=build /telegram-bot-api/repo/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh
+
 
 # Expose the port (change if needed)
 EXPOSE 8667
@@ -39,4 +50,4 @@ EXPOSE 8667
 # Command to run the Telegram Bot API server
 # CMD ["./build/telegram-bot-api", "-log-file", "/var/log/telegram-bot-api.log"]
 # RUN "./build/telegram-bot-api -p 8667"
-CMD ["sh", "./start.sh"]
+ENTRYPOINT ["/start.sh"]
